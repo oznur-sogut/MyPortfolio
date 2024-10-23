@@ -8,18 +8,19 @@
 <br/>
 <form method="post">
     <label>Referans Adı Soyadı</label>
-    <input type="text" class="form-control"/> 
+    <input type="text" class="form-control" name="TestimonialNameSurname"/> 
     <br/>
     <label>Referans Unvanı</label>
-    <input type="text" class="form-control"/> 
+    <input type="text" class="form-control" name="TestimonialTitle"/> 
     <br/>
     <label>Referans Görseli</label>
-    <input type="text" class="form-control"/> 
+    <input type="text" class="form-control" name="TestimonialImageUrl"/> 
     <br/>
     <label>Referans Yorumu</label>
-    <textarea rows="5" class="form-control"></textarea>
+    <textarea rows="5" class="form-control" name="TestimonialComment"></textarea>
     <br/>
-    <button class="btn btn-info">Referans Ekle</button>
+    <button class="btn btn-success">Referans Ekle</button>
 
 </form>
 
+@*mvc de name ifadesi işin backend tarafıyla haberleşen comuttur. Flight (frontend) kısmıyla haberleşen ise ID dir.*@

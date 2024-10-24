@@ -1,0 +1,24 @@
+﻿@model MyPortfolio.Models.Project
+@{
+    ViewBag.Title = "UpdateProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Proje Gündcelleme Sayfası</h2>
+<form method="post">
+    @Html.TextBoxFor(x=>x.ProjectID, new {@class="form-control", @type="hidden" })
+    <label>Proje Adı</label>
+    <br/>
+    @Html.TextBoxFor(x=>x.ProjectTitle, new {@class="form-control" })
+    <br/>
+    <label>Kategori Adı</label>
+    <br/>
+    @Html.DropDownListFor(x=>x.Category.CategoryID,(List<SelectListItem>)ViewBag.Value, new {@class="form-control" })
+    <br/>
+    <label>Proje Açıklaması</label>
+    <br/>
+    @Html.TextBoxFor(x=>x.ProjectDescription, new {@class="form-control" })
+    <br/>
+    <button class="btn btn-info">Güncelle</button>
+</form>
+

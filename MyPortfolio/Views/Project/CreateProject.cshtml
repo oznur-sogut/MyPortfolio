@@ -1,0 +1,23 @@
+﻿@model MyPortfolio.Models.Project
+@{
+    ViewBag.Title = "CreateProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Proje Ekleme Sayfası</h2>
+
+<form method="post">
+    <label>Proje Adı</label>
+    <br />
+    @Html.TextBoxFor(x => x.ProjectTitle, new { @class = "form-control" })
+    <br />
+    <label>Kategori Adı</label>
+    <br />
+    @Html.DropDownListFor(x => x.Category.CategoryID,(List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+    <br />
+    <label>Proje Açıklaması</label>
+    <br />
+    @Html.TextBoxFor(x => x.ProjectDescription, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Yeni Proje Ekle</button>
+</form>

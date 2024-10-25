@@ -18,6 +18,8 @@ namespace MyPortfolio.Models
         public string ProjectTitle { get; set; }
         public string ProjectDescription { get; set; }
         public Nullable<int> ProjectCategory { get; set; }
+        public Nullable<int> CompleteDay { get; set; }
+        public Nullable<decimal> Price { get; set; }
     
         public virtual Category Category { get; set; }
     }

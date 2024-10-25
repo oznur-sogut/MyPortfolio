@@ -31,6 +31,8 @@
           <Property Name="ProjectTitle" Type="nvarchar" MaxLength="100" />
           <Property Name="ProjectDescription" Type="nvarchar" MaxLength="500" />
           <Property Name="ProjectCategory" Type="int" />
+          <Property Name="CompleteDay" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -59,7 +61,7 @@
           <Property Name="TestimonialImageUrl" Type="nvarchar" MaxLength="100" />
           <Property Name="TestimonialComment" Type="nvarchar" MaxLength="250" />
         </EntityType>
-        <Association Name="FK_Project_Category">
+        <Association Name="FK_Project_Category1">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Project" Type="Self.Project" Multiplicity="*" />
           <ReferentialConstraint>
@@ -78,7 +80,7 @@
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Testimonial" EntityType="Self.Testimonial" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Project_Category" Association="Self.FK_Project_Category">
+          <AssociationSet Name="FK_Project_Category1" Association="Self.FK_Project_Category1">
             <End Role="Category" EntitySet="Category" />
             <End Role="Project" EntitySet="Project" />
           </AssociationSet>
@@ -144,6 +146,8 @@
           <Property Name="ProjectDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ProjectCategory" Type="Int32" />
           <NavigationProperty Name="Category" Relationship="MyPortfolioDbModel.FK_Project_Category" FromRole="Project" ToRole="Category" />
+          <Property Name="CompleteDay" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -215,6 +219,8 @@
           <EntitySetMapping Name="Project">
             <EntityTypeMapping TypeName="MyPortfolioDbModel.Project">
               <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CompleteDay" ColumnName="CompleteDay" />
                 <ScalarProperty Name="ProjectCategory" ColumnName="ProjectCategory" />
                 <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
                 <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />

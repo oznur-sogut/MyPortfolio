@@ -12,16 +12,12 @@ namespace MyPortfolio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Project
+    public partial class Address
     {
-        public int ProjectID { get; set; }
-        public string ProjectTitle { get; set; }
-        public string ProjectDescription { get; set; }
-        public Nullable<int> ProjectCategory { get; set; }
-        public Nullable<int> CompleteDay { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public string ProjectImageUrl { get; set; }
-    
-        public virtual Category Category { get; set; }
+        public int AddressID { get; set; }
+        public string Description { get; set; }
+        public string Phone { get; set; }
+        public string Mail { get; set; }
+        public string Address1 { get; set; }
     }
 }

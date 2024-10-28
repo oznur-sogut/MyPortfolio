@@ -9,8 +9,11 @@
 <table class="table table-bordered">
     <tr>
         <th>#</th>
+        <th>Proje Görseli</th>
         <th>Proje Adı</th>
         <th>Kategori</th>
+        <th>Toplam Gün Sayısı</th>
+        <th>Fiyat</th>
         <th>Sil</th>
         <th>Güncelle</th>
         <th>Github'da Gör</th>
@@ -19,8 +22,11 @@
     {
         <tr>
             <td>@item.ProjectID</td>
+            <td><img src="@item.ProjectImageUrl" alt=" " width="50" height="50" class="rounded-circle" /></td>
             <td>@item.ProjectTitle</td>
             <td>@item.Category.CategoryName</td>
+            <td>@item.CompleteDay</td>
+            <td>@item.Price</td>
             <td> @Html.ActionLink("Sil","DeleteProject", new {id=item.ProjectID}, new {@class="btn btn-outline-danger", onclick="return confirm('Silmek istediğinizden emin misiniz?')"}) </td>
             <td><a href="/Project/UpdateProject/@item.ProjectID" class="btn btn-outline-success">Güncelle</a></td>
             <td><a href="/Project/GithubProject/@item.ProjectID" class="btn btn-outline-warning">Github</a></td>

@@ -36,5 +36,18 @@ namespace MyPortfolio.Controllers
             var value = db.Service.ToList();
             return PartialView(value);
         }
+        public PartialViewResult PartialSkill()
+        {
+            var value= db.Skill.ToList();
+            return PartialView(value);
+        }
+        public PartialViewResult PartialAward()
+        {
+            return PartialView();
+        }
+        public PartialViewResult PartialTestimonial()
+        {
+            return PartialView();
+        }
     }
 }

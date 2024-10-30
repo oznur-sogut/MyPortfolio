@@ -14,13 +14,20 @@ namespace MyPortfolio.Controllers
 		[HttpGet]
         public ActionResult ContactIndex()
         {
+            //firstordefault bulduğu ilk değeri getirir.
+            ViewBag.description= db.Address.Select(x => x.Description).FirstOrDefault();
+            ViewBag.phone= db.Address.Select(x => x.Phone).FirstOrDefault();
+            ViewBag.addressDetail= db.Address.Select(x => x.AddressDetail).FirstOrDefault();
+            ViewBag.mail=db.Address.Select(x=>x.Mail).FirstOrDefault();
             return View();
         }
         [HttpPost]
         
-        public ActionResult ContactIndex(string a)
+        public ActionResult ContactIndex(Contact contact)
         {
-            return View(); 
+            db.Contact.Add(contact);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Default"); 
         }
     }
 }

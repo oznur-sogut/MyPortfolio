@@ -49,5 +49,9 @@ namespace MyPortfolio.Controllers
         {
             return PartialView();
         }
+        public PartialViewResult PartialScript()
+        {
+            return PartialView();
+        }
     }
 }

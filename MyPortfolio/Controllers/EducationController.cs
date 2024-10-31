@@ -8,7 +8,7 @@ namespace MyPortfolio.Controllers
 {
     public class EducationController : Controller
     {
-        
+        [Authorize]
         public ActionResult EducationIndex()
         {
             return View();

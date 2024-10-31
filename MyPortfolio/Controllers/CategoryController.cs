@@ -10,6 +10,7 @@ namespace MyPortfolio.Controllers
     public class CategoryController : Controller
     {
         MyPortfolioDbEntities db = new MyPortfolioDbEntities();
+        [Authorize]
         public ActionResult CategoryIndex()
         {
             var value= db.Category.ToList();

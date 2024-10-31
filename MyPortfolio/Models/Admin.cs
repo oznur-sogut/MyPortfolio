@@ -17,5 +17,8 @@ namespace MyPortfolio.Models
         public int AdminID { get; set; }
         public string AdminUserName { get; set; }
         public string Password { get; set; }
+        public string AdminNameSurname { get; set; }
+        public string AdminEmail { get; set; }
+        public string AdminPhone { get; set; }
     }
 }

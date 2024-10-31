@@ -53,5 +53,25 @@ namespace MyPortfolio.Controllers
         {
             return PartialView();
         }
+        [HttpGet]
+        public PartialViewResult PartialContact()
+        {
+			ViewBag.description = db.Address.Select(x => x.Description).FirstOrDefault();
+			ViewBag.phone = db.Address.Select(x => x.Phone).FirstOrDefault();
+			ViewBag.addressDetail = db.Address.Select(x => x.AddressDetail).FirstOrDefault();
+			ViewBag.mail = db.Address.Select(x => x.Mail).FirstOrDefault();
+			return PartialView();
+		}
+        [HttpPost]
+		public PartialViewResult PartialContact(Contact contact)
+		{
+			db.Contact.Add(contact);
+			db.SaveChanges();
+            return PartialView();
+		}
+		public PartialViewResult PartialStatisticAndProject()
+        {
+            return PartialView();
+        }
     }
 }

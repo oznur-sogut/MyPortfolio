@@ -10,6 +10,7 @@ namespace MyPortfolio.Controllers
     public class ServiceController : Controller
     {
         MyPortfolioDbEntities db =new MyPortfolioDbEntities();
+        [Authorize]
         public ActionResult ServiceIndex()
         {
             var value= db.Service.ToList();

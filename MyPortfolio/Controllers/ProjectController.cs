@@ -11,7 +11,9 @@ namespace MyPortfolio.Controllers
     {
         
         MyPortfolioDbEntities db = new MyPortfolioDbEntities();
-        public ActionResult ProjectIndex()
+
+		[Authorize]
+		public ActionResult ProjectIndex()
         {
             var value= db.Project.ToList();
             return View(value);

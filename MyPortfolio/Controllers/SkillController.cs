@@ -9,6 +9,7 @@ namespace MyPortfolio.Controllers
     public class SkillController : Controller
     {
         // GET: Skill
+        [Authorize]
         public ActionResult SkillIndex()
         {
             return View();

@@ -6,19 +6,27 @@
 
 <h2>Proje Gündcelleme Sayfası</h2>
 <form method="post">
-    @Html.TextBoxFor(x=>x.ProjectID, new {@class="form-control", @type="hidden" })
+    @Html.TextBoxFor(x => x.ProjectID, new { @class = "form-control", @type = "hidden" })
     <label>Proje Adı</label>
-    <br/>
-    @Html.TextBoxFor(x=>x.ProjectTitle, new {@class="form-control" })
-    <br/>
+    <br />
+    @Html.TextBoxFor(x => x.ProjectTitle, new { @class = "form-control" })
+    <br />
     <label>Kategori Adı</label>
-    <br/>
-    @Html.DropDownListFor(x=>x.Category.CategoryID,(List<SelectListItem>)ViewBag.Value, new {@class="form-control" })
-    <br/>
+    <br />
+    @Html.DropDownListFor(x => x.Category.CategoryID, (List<SelectListItem>)ViewBag.Value, new { @class = "form-control" })
+    <br />
+    <label>Proje Tamamlanma Toplam Gün Saysı</label>
+    <br />
+    @Html.TextBoxFor(x => x.CompleteDay, new { @class = "form-control" })
+    <br />
+    <label>Proje Fiyatı</label>
+    <br />
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
     <label>Proje Açıklaması</label>
-    <br/>
-    @Html.TextBoxFor(x=>x.ProjectDescription, new {@class="form-control" })
-    <br/>
+    <br />
+    @Html.TextBoxFor(x => x.ProjectDescription, new { @class = "form-control" })
+    <br />
     <button class="btn btn-info">Güncelle</button>
 </form>
 

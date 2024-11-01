@@ -12,6 +12,7 @@ namespace MyPortfolio.Controllers
     public class TestimonialController : Controller
     {
         MyPortfolioDbEntities db= new MyPortfolioDbEntities();
+        [Authorize]
         public ActionResult TestimonialIndex()
         {
             var value = db.Testimonial.ToList();

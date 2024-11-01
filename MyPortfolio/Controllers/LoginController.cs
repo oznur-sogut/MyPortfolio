@@ -30,5 +30,10 @@ namespace MyPortfolio.Controllers
             }
             return View();
         }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("LoginIndex", "Login");
+        }
     }
 }

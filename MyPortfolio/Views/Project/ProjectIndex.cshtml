@@ -16,7 +16,6 @@
         <th>Fiyat</th>
         <th>Sil</th>
         <th>Güncelle</th>
-        <th>Github'da Gör</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -29,7 +28,6 @@
             <td>@item.Price</td>
             <td> @Html.ActionLink("Sil","DeleteProject", new {id=item.ProjectID}, new {@class="btn btn-outline-danger", onclick="return confirm('Silmek istediğinizden emin misiniz?')"}) </td>
             <td><a href="/Project/UpdateProject/@item.ProjectID" class="btn btn-outline-success">Güncelle</a></td>
-            <td><a href="/Project/GithubProject/@item.ProjectID" class="btn btn-outline-warning">Github</a></td>
         </tr>
     }
 </table>

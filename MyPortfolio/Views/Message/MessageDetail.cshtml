@@ -1,0 +1,25 @@
+﻿@model MyPortfolio.Models.Contact
+@{
+    ViewBag.Title = "MessageDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="page-title">Gelen Mesaj Detayı</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title"> <b>Gönderen: </b> @Model.ContactName</div>
+                <div class="card-body">
+                    <div class="card-sub">
+                        <b>EMail: </b> @Model.ContactMail <br />
+                        <b>Mesaj Konusu:</b> @Model.ContactSubject <br />
+                        <b>Gelen Mesaj: </b> @Model.ContactMessage <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/Message/MessageIndex" class="btn btn-info px-3" style="margin-top:20px" >Geri Dön</a>
+

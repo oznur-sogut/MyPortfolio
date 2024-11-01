@@ -13,7 +13,15 @@
     <br />
     <label>Kategori Adı</label>
     <br />
-    @Html.DropDownListFor(x => x.Category.CategoryID,(List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.Category.CategoryID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+    <br />
+    <label>Proje Tamamlanma Toplam Gün Saysı</label>
+    <br />
+    @Html.TextBoxFor(x => x.CompleteDay, new { @class = "form-control" })
+    <br />
+    <label>Proje Fiyatı</label>
+    <br />
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
     <br />
     <label>Proje Açıklaması</label>
     <br />

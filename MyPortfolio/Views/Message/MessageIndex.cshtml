@@ -1,0 +1,27 @@
+﻿@model List< MyPortfolio.Models.Contact>
+@{
+    ViewBag.Title = "MessageIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Gelen Mesajlar Sayfası</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Gönderen</th>
+        <th>Konu</th>
+        <th>Detay</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ContactID</td>
+            <td>@item.ContactName</td>
+            <td>@item.ContactSubject</td>
+            <td><a href="/Message/MessageDetail/@item.ContactID" class="btn btn-outline-warning">Mesaj Aç</a></td>
+            <td><a href="/Message/DeleteMessage/@item.ContactID" class="btn btn-outline-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+

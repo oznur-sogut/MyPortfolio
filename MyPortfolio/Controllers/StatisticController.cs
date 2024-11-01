@@ -10,6 +10,7 @@ namespace MyPortfolio.Controllers
     public class StatisticController : Controller
     {
        MyPortfolioDbEntities db= new MyPortfolioDbEntities();
+        [Authorize]
         public ActionResult StatisticIndex()
         {
             ViewBag.totalProjectCount = db.Project.Count();

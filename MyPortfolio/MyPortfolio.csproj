@@ -135,6 +135,7 @@
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
@@ -577,6 +578,8 @@
     <Content Include="Templates\login-form-20\scss\style.scss" />
     <Content Include="Views\Default\PartialStatisticAndProject.cshtml" />
     <Content Include="Views\Default\PartialContact.cshtml" />
+    <Content Include="Views\Message\MessageIndex.cshtml" />
+    <Content Include="Views\Message\MessageDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

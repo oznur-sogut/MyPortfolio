@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPortfolio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,13 @@ namespace MyPortfolio.Controllers
 {
     public class SkillController : Controller
     {
-        // GET: Skill
+        MyPortfolioDbEntities db = new MyPortfolioDbEntities();
+
         [Authorize]
         public ActionResult SkillIndex()
         {
-            return View();
+            var value= db.Skill.ToList();
+            return View(value);
         }
     }
 }

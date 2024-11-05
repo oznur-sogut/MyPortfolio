@@ -20,5 +20,8 @@ namespace MyPortfolio.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string AboutImage { get; set; }
+        public Nullable<int> AboutSocial { get; set; }
+    
+        public virtual SocialMedias SocialMedias { get; set; }
     }
 }

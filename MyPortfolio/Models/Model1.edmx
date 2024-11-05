@@ -15,6 +15,7 @@
           <Property Name="Title" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="AboutImage" Type="nvarchar" MaxLength="250" />
+          <Property Name="AboutSocial" Type="int" />
         </EntityType>
         <EntityType Name="Address">
           <Key>
@@ -81,6 +82,15 @@
           <Property Name="SkillTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="SkillValue" Type="tinyint" />
         </EntityType>
+        <EntityType Name="SocialMedias">
+          <Key>
+            <PropertyRef Name="SocialID" />
+          </Key>
+          <Property Name="SocialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SocialName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SocialIcon" Type="nvarchar(max)" />
+          <Property Name="SocialUrl" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -101,6 +111,18 @@
           <Property Name="TestimonialImageUrl" Type="nvarchar" MaxLength="100" />
           <Property Name="TestimonialComment" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <Association Name="FK_About_SocialMedias">
+          <End Role="SocialMedias" Type="Self.SocialMedias" Multiplicity="0..1" />
+          <End Role="About" Type="Self.About" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialMedias">
+              <PropertyRef Name="SocialID" />
+            </Principal>
+            <Dependent Role="About">
+              <PropertyRef Name="AboutSocial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Project_Category1">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Project" Type="Self.Project" Multiplicity="*" />
@@ -122,8 +144,13 @@
           <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialMedias" EntityType="Self.SocialMedias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Testimonial" EntityType="Self.Testimonial" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_About_SocialMedias" Association="Self.FK_About_SocialMedias">
+            <End Role="SocialMedias" EntitySet="SocialMedias" />
+            <End Role="About" EntitySet="About" />
+          </AssociationSet>
           <AssociationSet Name="FK_Project_Category1" Association="Self.FK_Project_Category1">
             <End Role="Category" EntitySet="Category" />
             <End Role="Project" EntitySet="Project" />
@@ -143,6 +170,8 @@
           <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="AboutImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AboutSocial" Type="Int32" />
+          <NavigationProperty Name="SocialMedias" Relationship="MyPortfolioDbModel.FK_About_SocialMedias" FromRole="About" ToRole="SocialMedias" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -166,6 +195,11 @@
           <EntitySet Name="Address" EntityType="MyPortfolioDbModel.Address" />
           <EntitySet Name="Admin" EntityType="MyPortfolioDbModel.Admin" />
           <EntitySet Name="Contact" EntityType="MyPortfolioDbModel.Contact" />
+          <EntitySet Name="SocialMedias" EntityType="MyPortfolioDbModel.SocialMedias" />
+          <AssociationSet Name="FK_About_SocialMedias" Association="MyPortfolioDbModel.FK_About_SocialMedias">
+            <End Role="SocialMedias" EntitySet="SocialMedias" />
+            <End Role="About" EntitySet="About" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Testimonial">
           <Key>
@@ -259,6 +293,28 @@
           <Property Name="ContactSubject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ContactMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="SocialMedias">
+          <Key>
+            <PropertyRef Name="SocialID" />
+          </Key>
+          <Property Name="SocialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SocialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SocialIcon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SocialUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="About" Relationship="MyPortfolioDbModel.FK_About_SocialMedias" FromRole="SocialMedias" ToRole="About" />
+        </EntityType>
+        <Association Name="FK_About_SocialMedias">
+          <End Type="MyPortfolioDbModel.SocialMedias" Role="SocialMedias" Multiplicity="0..1" />
+          <End Type="MyPortfolioDbModel.About" Role="About" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialMedias">
+              <PropertyRef Name="SocialID" />
+            </Principal>
+            <Dependent Role="About">
+              <PropertyRef Name="AboutSocial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -268,6 +324,7 @@
           <EntitySetMapping Name="About">
             <EntityTypeMapping TypeName="MyPortfolioDbModel.About">
               <MappingFragment StoreEntitySet="About">
+                <ScalarProperty Name="AboutSocial" ColumnName="AboutSocial" />
                 <ScalarProperty Name="AboutID" ColumnName="AboutID" />
                 <ScalarProperty Name="Introduction" ColumnName="Introduction" />
                 <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
@@ -368,6 +425,16 @@
                 <ScalarProperty Name="ContactMail" ColumnName="ContactMail" />
                 <ScalarProperty Name="ContactName" ColumnName="ContactName" />
                 <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialMedias">
+            <EntityTypeMapping TypeName="MyPortfolioDbModel.SocialMedias">
+              <MappingFragment StoreEntitySet="SocialMedias">
+                <ScalarProperty Name="SocialUrl" ColumnName="SocialUrl" />
+                <ScalarProperty Name="SocialIcon" ColumnName="SocialIcon" />
+                <ScalarProperty Name="SocialName" ColumnName="SocialName" />
+                <ScalarProperty Name="SocialID" ColumnName="SocialID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

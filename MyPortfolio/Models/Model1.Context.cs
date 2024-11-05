@@ -35,5 +35,6 @@ namespace MyPortfolio.Models
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Contact> Contact { get; set; }
+        public virtual DbSet<SocialMedias> SocialMedias { get; set; }
     }
 }

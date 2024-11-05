@@ -16,6 +16,8 @@
         <EntityTypeShape EntityType="MyPortfolioDbModel.Address" Width="1.5" PointX="3.375" PointY="6.75" />
         <EntityTypeShape EntityType="MyPortfolioDbModel.Admin" Width="1.5" PointX="5.375" PointY="6.75" />
         <EntityTypeShape EntityType="MyPortfolioDbModel.Contact" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.SocialMedias" Width="1.5" PointX="7.375" PointY="3.75" />
+        <AssociationConnector Association="MyPortfolioDbModel.FK_About_SocialMedias" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,38 @@
+﻿@model List<MyPortfolio.Models.SocialMedias>
+@{
+    ViewBag.Title = "SocialIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sosyal Medya Sayfası</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card card-stats ">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="icon-big text-center" style="font-size:30px;color:lightblue;">
+                                <a href="@item.SocialUrl" class="@item.SocialIcon  nav-link"></a>
+                            </div>
+                        </div>
+                        <div class="col-7 d-flex align-items-center">
+                            <div class="numbers">
+                                <a href="@item.SocialUrl" class="card-title">@item.SocialName</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-columns d-flex justify-content-center">
+
+                        <a href="/SocialMedia/UpdateSocial/@item.SocialID" class="btn btn-outline-success">Güncelle</a>
+                        <a href="/SocialMedia/DeleteSocial/@item.SocialID" class="btn btn-outline-danger">Sil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+<a href="/SocialMedia/CreateSocial/" class="btn btn-info mt-3">Hesap Ekle</a>
+

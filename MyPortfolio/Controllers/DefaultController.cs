@@ -29,7 +29,12 @@ namespace MyPortfolio.Controllers
         }
         public PartialViewResult PartialFeature()
         {
-            return PartialView();
+            ViewBag.introduction=db.About.Select(x=>x.Introduction).FirstOrDefault();
+            ViewBag.name=db.About.Select(x=>x.NameSurname).FirstOrDefault();
+            ViewBag.title=db.About.Select(x=>x.Title).FirstOrDefault();
+            ViewBag.description=db.About.Select(x=>x.Description).FirstOrDefault();
+            var value=db.About.ToList();
+            return PartialView(value);
         }
         public PartialViewResult PartialService()
         {//veriyle birlikte parçayı getirme

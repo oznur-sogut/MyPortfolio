@@ -1,58 +1,53 @@
-﻿<section class="w3l-homeblock3" id="clients">
+﻿@model List<MyPortfolio.Models.Project>
+<section class="w3l-homeblock3" id="clients">
     <div class="midd-w3 py-5">
         <div class="container py-lg-5 py-md-3">
             <div class="row">
                 <div class="col-lg-6">
                     <span class="text">İstatistikler & Projeler </span>
                     <h3 class="title-big">
-                        Clients / Partners and
-                        <span> Collaborations.</span>
+                         Projelerim ve
+                        <span> İstatistiklerim.</span>
                     </h3>
                     <p class="mt-4">
-                        Over the past ten years, I've been fortunate to work with and for people from some
-                        amazing organizations.
+                        Bugüne kadar Full steck Developer olarak gelişirken yaptığım projeler ve verdiğim hizmetler yer almaktadır.
                     </p>
                     <div class="reward-list mt-5">
                         <div class="reward-item">
                             <div class="reward-item-photo">
-                                1k+
+                                @ViewBag.skill+
                             </div>
                             <div class="reward-item-detail">
-                                <span class="reward-item-title">Total CLients</span>
-                                <p class="reward-item-descr">over 18 countries</p>
+                                <span class="reward-item-title">Edindiğim Toplam Yetenek Sayısı</span>
+                                <p class="reward-item-descr">Eğitim hayatımda ve haricinde edindiği teknoloji ve prog. dilleri baz alınmıştır</p>
                             </div>
                         </div>
                         <div class="reward-item">
                             <div class="reward-item-photo">
-                                95%
+                                45%
                             </div>
                             <div class="reward-item-detail">
-                                <span class="reward-item-title">Sensitive feedback</span>
-                                <p class="reward-item-descr">For Design quality</p>
+                                <span class="reward-item-title">Başarı Yüzdem</span>
+                                <p class="reward-item-descr">Bugüne kadar geliştirdiğim projeler baz alınmıştır</p>
                             </div>
                         </div>
                         <div class="reward-item">
                             <div class="reward-item-photo">
-                                150+
+                                @ViewBag.service+
                             </div>
                             <div class="reward-item-detail">
-                                <span class="reward-item-title">Trusted sponsers</span>
-                                <p class="reward-item-descr">Featued by top rankers</p>
+                                <span class="reward-item-title">Verdiğim Hizmet Sayısı</span>
+                                <p class="reward-item-descr">Çalıştığım projeler baz alınmıştır</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 align-self text-center mt-lg-0 mt-md-5 mt-4">
                     <div class="images">
-                        <img src="~/Templates/iportfolio-starter/assets/images/client1.png" class="img-fluid" alt="" />
-                        <img src="~/Templates/iportfolio-starter/assets/images/client2.png" class="img-fluid" alt="" />
-                        <img src="~/Templates/iportfolio-starter/assets/images/client3.png" class="img-fluid" alt="" />
-                        <img src="~/Templates/iportfolio-starter/assets/images/client4.png" class="img-fluid" alt="" />
-                        <img src="~/Templates/iportfolio-starter/assets/images/client5.png" class="img-fluid" alt="" />
-                        <img src="~/Templates/iportfolio-starter/assets/images/client6.png" class="img-fluid" alt="" />
-                        <img src="~/Templates/iportfolio-starter/assets/images/client2.png" class="img-fluid" alt="" />
-                        <img src="~/Templates/iportfolio-starter/assets/images/client3.png" class="img-fluid" alt="" />
-                        <img src="~/Templates/iportfolio-starter/assets/images/client4.png" class="img-fluid" alt="" />
+                        @foreach (var item in Model)
+                        {
+                            <img src="@item.ProjectImageUrl" class="img-fluid" alt="" />
+                        }
                     </div>
                 </div>
             </div>

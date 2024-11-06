@@ -108,7 +108,7 @@
           <Property Name="TestimonialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TestimonialNameSurname" Type="nvarchar" MaxLength="100" />
           <Property Name="TestimonialTitle" Type="nvarchar" MaxLength="100" />
-          <Property Name="TestimonialImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="TestimonialImageUrl" Type="nvarchar(max)" />
           <Property Name="TestimonialComment" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <Association Name="FK_About_SocialMedias">
@@ -208,7 +208,7 @@
           <Property Name="TestimonialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TestimonialNameSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TestimonialTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="TestimonialImageUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TestimonialImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TestimonialComment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Category">

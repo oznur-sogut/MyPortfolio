@@ -52,7 +52,8 @@ namespace MyPortfolio.Controllers
         }
         public PartialViewResult PartialTestimonial()
         {
-            return PartialView();
+            var value= db.Testimonial.ToList();
+            return PartialView(value);
         }
         public PartialViewResult PartialScript()
         {
@@ -76,7 +77,10 @@ namespace MyPortfolio.Controllers
 		}
 		public PartialViewResult PartialStatisticAndProject()
         {
-            return PartialView();
+            ViewBag.skill=db.Skill.Select(x=> x.SkillID).Count();
+            ViewBag.service=db.Service.Select(x=> x.ServiceID).Count();
+            var value= db.Project.ToList();
+            return PartialView(value);
         }
     }
 }

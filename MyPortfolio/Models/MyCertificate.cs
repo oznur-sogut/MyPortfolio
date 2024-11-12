@@ -12,13 +12,11 @@ namespace MyPortfolio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class About
+    public partial class MyCertificate
     {
-        public int AboutID { get; set; }
-        public string Introduction { get; set; }
-        public string NameSurname { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string AboutImage { get; set; }
+        public int CertificateID { get; set; }
+        public string CertificateName { get; set; }
+        public string CertificateLocation { get; set; }
+        public string CertificateYear { get; set; }
     }
 }

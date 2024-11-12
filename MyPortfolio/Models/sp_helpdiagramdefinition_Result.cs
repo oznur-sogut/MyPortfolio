@@ -10,15 +10,10 @@
 namespace MyPortfolio.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class About
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int AboutID { get; set; }
-        public string Introduction { get; set; }
-        public string NameSurname { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string AboutImage { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

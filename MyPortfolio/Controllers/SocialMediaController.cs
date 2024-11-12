@@ -13,13 +13,13 @@ namespace MyPortfolio.Controllers
         [Authorize]
         public ActionResult SocialIndex()
         {
-            var value = db.SocialMedias.ToList();
+            var value = db.SocialMedia.ToList();
             return View(value);
         }
         public ActionResult DeleteSocial(int id)
         {
-            var value= db.SocialMedias.Find(id);
-            db.SocialMedias.Remove(value);
+            var value= db.SocialMedia.Find(id);
+            db.SocialMedia.Remove(value);
             db.SaveChanges();
             return RedirectToAction("SocialIndex");
         }
@@ -29,22 +29,22 @@ namespace MyPortfolio.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreateSocial(SocialMedias socialMedia)
+        public ActionResult CreateSocial(SocialMedia socialMedia)
         {
-            db.SocialMedias.Add(socialMedia);
+            db.SocialMedia.Add(socialMedia);
             db.SaveChanges();
             return RedirectToAction("SocialIndex");
         }
         [HttpGet]
         public ActionResult UpdateSocial(int id)
         {
-            var value = db.SocialMedias.Find(id);
+            var value = db.SocialMedia.Find(id);
             return View(value);
         }
         [HttpPost]
-        public ActionResult UpdateSocial(SocialMedias socialMedias)
+        public ActionResult UpdateSocial(SocialMedia socialMedias)
         {
-            var value = db.SocialMedias.Find(socialMedias.SocialID);
+            var value = db.SocialMedia.Find(socialMedias.SocialID);
             value.SocialName = socialMedias.SocialName;
             value.SocialUrl = socialMedias.SocialUrl;
             value.SocialIcon = socialMedias.SocialIcon;

@@ -12,20 +12,11 @@ namespace MyPortfolio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SocialMedias
+    public partial class SocialMedia
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SocialMedias()
-        {
-            this.About = new HashSet<About>();
-        }
-    
         public int SocialID { get; set; }
         public string SocialName { get; set; }
         public string SocialIcon { get; set; }
         public string SocialUrl { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<About> About { get; set; }
     }
 }

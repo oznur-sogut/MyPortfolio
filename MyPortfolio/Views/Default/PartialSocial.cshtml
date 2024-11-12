@@ -1,0 +1,8 @@
+﻿@model List<MyPortfolio.Models.SocialMedia>
+<ul class="follow-social">
+    <li><p>Follow me </p></li>
+    @foreach (var item in Model)
+    {
+        <li><a href="@item.SocialUrl"><span class="@item.SocialIcon"></span></a></li>
+    }
+</ul>

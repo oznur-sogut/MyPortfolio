@@ -25,7 +25,12 @@ namespace MyPortfolio.Controllers
         }
         public PartialViewResult PartialQuickContent()
         {
-            return PartialView();
+            ViewBag.name= db.About.Select(x=>x.NameSurname).FirstOrDefault();
+            ViewBag.description=db.About.Select(x=>x.Description).FirstOrDefault();
+            ViewBag.phone=db.Address.Select(x=>x.Phone).FirstOrDefault();
+            ViewBag.mail=db.Address.Select(x=>x.Mail).FirstOrDefault();
+            var value= db.SocialMedia.ToList();
+            return PartialView(value);
         }
         public PartialViewResult PartialFeature()
         {
@@ -33,7 +38,12 @@ namespace MyPortfolio.Controllers
             ViewBag.name=db.About.Select(x=>x.NameSurname).FirstOrDefault();
             ViewBag.title=db.About.Select(x=>x.Title).FirstOrDefault();
             ViewBag.description=db.About.Select(x=>x.Description).FirstOrDefault();
-            var value=db.About.ToList();
+            ViewBag.image=db.About.Select(x=>x.AboutImage).FirstOrDefault();
+            return PartialView();
+        }
+        public PartialViewResult PartialSocial()
+        {
+            var value= db.SocialMedia.ToList();
             return PartialView(value);
         }
         public PartialViewResult PartialService()
@@ -48,7 +58,10 @@ namespace MyPortfolio.Controllers
         }
         public PartialViewResult PartialAward()
         {
-            return PartialView();
+            ViewBag.title = db.MyEducation.Select(x => x.EducationTitle).FirstOrDefault();
+            ViewBag.subtitle = db.MyEducation.Select(x => x.EducationSubTitle).FirstOrDefault();
+            var value =db.MyCertificate.ToList();
+            return PartialView(value);
         }
         public PartialViewResult PartialTestimonial()
         {

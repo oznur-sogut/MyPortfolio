@@ -12,13 +12,10 @@ namespace MyPortfolio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class About
+    public partial class MyEducation
     {
-        public int AboutID { get; set; }
-        public string Introduction { get; set; }
-        public string NameSurname { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string AboutImage { get; set; }
+        public int EducationID { get; set; }
+        public string EducationTitle { get; set; }
+        public string EducationSubTitle { get; set; }
     }
 }

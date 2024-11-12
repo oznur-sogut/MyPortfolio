@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPortfolio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace MyPortfolio.Controllers
 {
     public class EducationController : Controller
     {
+        MyPortfolioDbEntities db= new MyPortfolioDbEntities();
         [Authorize]
         public ActionResult EducationIndex()
         {
-            return View();
+            var value = db.MyCertificate.ToList();
+            return View(value);
         }
     }
 }

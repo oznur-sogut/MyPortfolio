@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "CreateCertificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sertifika Ekleme Sayfası</h2>
+<form method="post">
+    <label>Sertifika Adı</label>
+    <input type="text" name="CertificateName" class="form-control" />
+    <br />
+    <label>Eğitim Yeri</label>
+    <input type="text" name="CertificateLocation" class="form-control"/>
+    <br />
+    <label>Sertifika Yılı</label>
+    <input type="text" name="CertificateYear" class="form-control"/>
+    <br />
+    <button class="btn btn-info">Ekle</button>
+</form>

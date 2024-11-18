@@ -1,32 +1,27 @@
-﻿@model List<MyPortfolio.Models.MyCertificate>
+﻿@model List<MyPortfolio.Models.MyEducation>
 @{
     ViewBag.Title = "EducationIndex";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Sertifikalarım</h2>
+<h2>Eğitim Hayatım</h2>
 
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
-        <th>Eğitim Adı</th>
-        <th>Eğitim Yeri</th>
-        <th>Eğitim Yılı</th>
-        <th>Sil</th>
+        <th>Eğitim Başlığı</th>
+        <th>Eğitim Hayatım</th>
         <th>Güncelle</th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.CertificateID</td>
-            <td>@item.CertificateName</td>
-            <td>@item.CertificateLocation </td>
-            <td>@item.CertificateYear</td>
-            <td><a href="Education/DeleteEducation/@item.CertificateID" class="btn btn-outline-danger">Sil</a></td>
-            <td><a href="Education/UpdateEducation/@item.CertificateID" class="btn btn-outline-success">Güncelle</a></td>
+            <td>@item.EducationID</td>
+            <td>@item.EducationTitle</td>
+            <td>@item.EducationSubTitle </td>
+            <td><a href="/Education/UpdateEducation/@item.EducationID" class="btn btn-outline-success">Güncelle</a></td>
         </tr>
             }
         
     </table>
-<a href="Education/CreateEducation" class="btn btn-info"> Yeni Sertifika Ekle</a>

@@ -1,0 +1,15 @@
+﻿@model MyPortfolio.Models.Service
+@{
+    ViewBag.Title = "UpdateService";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Deneyim Güncelleme Sayfası</h2>
+
+<form method="post">
+    @Html.TextBoxFor(x => x.ServiceID, new { @type = "hidden", @class = "form-control" })
+    <label>Deneyim Adı</label>
+    @Html.TextBoxFor(x => x.ServiceName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

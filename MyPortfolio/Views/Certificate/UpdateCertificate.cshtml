@@ -1,0 +1,21 @@
+﻿@model MyPortfolio.Models.MyCertificate
+@{
+    ViewBag.Title = "UpdateCertificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sertifika Güncelleme Sayfası</h2>
+<form method="post">
+    @Html.TextBoxFor(x => x.CertificateID, new { @type = "hidden", @class = "form-control" })
+    <label>Sertifika Adı</label>
+    @Html.TextBoxFor(x => x.CertificateName, new { @class = "form-control" })
+    <br />
+    <label>Eğitim Yeri</label>
+    @Html.TextBoxFor(x => x.CertificateLocation, new { @class = "form-control" })
+    <br />
+    <label>Sertifika Yılı</label>
+    @Html.TextBoxFor(x => x.CertificateYear, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</form>
+

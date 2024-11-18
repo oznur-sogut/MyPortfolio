@@ -13,8 +13,23 @@ namespace MyPortfolio.Controllers
         [Authorize]
         public ActionResult EducationIndex()
         {
-            var value = db.MyCertificate.ToList();
+            var value = db.MyEducation.ToList();
             return View(value);
+        }
+        [HttpGet]
+        public ActionResult UpdateEducation(int id)
+        {
+            var value= db.MyEducation.Find(id);
+            return View(value);
+        }
+        [HttpPost]
+        public ActionResult UpdateEducation (MyEducation myEducation)
+        {
+            var value=db.MyEducation.Find(myEducation.EducationID);
+            value.EducationTitle = myEducation.EducationTitle;
+            value.EducationSubTitle = myEducation.EducationSubTitle;
+            db.SaveChanges();
+            return RedirectToAction("EducationIndex");
         }
     }
 }

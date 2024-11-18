@@ -1,0 +1,18 @@
+﻿@model MyPortfolio.Models.MyEducation
+@{
+    ViewBag.Title = "UpdateEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Eğitim Hayatı Güncelleme Sayfası</h2>
+<form method="post">
+    @Html.TextBoxFor(x => x.EducationID, new { @type = "hidden", @class = "form-control" })
+    <label>Eğitim Başlığı</label>
+    @Html.TextBoxFor(x => x.EducationTitle, new { @class = "form-control" })
+    <br />
+    <label>Eğitim Açıklaması</label>
+    @Html.TextBoxFor(x => x.EducationSubTitle, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+

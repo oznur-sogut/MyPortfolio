@@ -4,13 +4,13 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Hizmet Listesi</h2>
+<h2>Deneyimlerim Sayfası</h2>
 <table class="table table-bordered">
     <tr>
-        <td>Hizmet ID</td>
-        <td>Hizmet Adı</td>
-        <td>Hizmet Sil</td>
-        <td>Hizmet Güncelle</td>
+        <td> ID</td>
+        <td>Deneyim Adı</td>
+        <td>Sil</td>
+        <td>Güncelle</td>
     </tr>
     @foreach (var item in Model)
     {
@@ -22,4 +22,5 @@
         </tr>
     }
 </table>
+<a href="/Service/CreateService" class="btn btn-info">Yeni Deneyim Ekle</a>
 
